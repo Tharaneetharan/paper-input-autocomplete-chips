@@ -509,7 +509,6 @@ Example:
                 $this._fixMissingObjextKeys([ spliceItem.object[spliceItem.index] ]);          
               }
             });
-            //console.info(this.selectedObjects);
           } else {
             this._fixMissingObjextKeys(selectedObjects);          
           }
@@ -727,7 +726,6 @@ Example:
       },
 
       _onBlur: function() {
-        console.log('[_onBlur]');
         this._paperInputContainerElement._handleValueAndAutoValidate(this._inputElement);
       },
       
