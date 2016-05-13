@@ -2,7 +2,7 @@
   "name": "paper-input-autocomplete-chips",
   "version": "0.27.0",
   "authors": [
-    "Vinicius Patrinhani <patrinhani@ciandt.com>"
+    "Sachindra Ariyasinghe <sachindra.ariyasinghe@.com>"
   ],
   "description": "Web Component for Input autocomplete chips based on Polymer Paper Elements.",
   "keywords": [
