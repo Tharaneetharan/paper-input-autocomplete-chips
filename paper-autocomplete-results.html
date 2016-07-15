@@ -80,10 +80,10 @@
           
           var offset = nextElement.offsetTop + nextElement.offsetHeight;
           var clientHeightOffsetParent = (this.offsetParent) ? this.offsetParent.clientHeight : 0;
-          var scrollTopValue = Math.max(0, offset - clientHeightOffsetParent);
-          if (this.offsetParent) {
-            this.offsetParent.scrollTop = scrollTopValue;
-          }
+          // var scrollTopValue = Math.max(0, offset - clientHeightOffsetParent);
+          // if (this.offsetParent) {
+          //   this.offsetParent.scrollTop = scrollTopValue;
+          // }
         }
       },
 
