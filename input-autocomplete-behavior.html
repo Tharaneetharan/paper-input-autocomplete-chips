@@ -5,7 +5,7 @@
   var WebPaperElem = WebPaperElem || {};
 
   WebPaperElem.InputAutoCompleteBehaviorImpl = {
-	  properties: {
+    properties: {
       selectedItem: {
         type: Object,
       },
@@ -113,7 +113,7 @@
         type: Boolean,
         value: false
       }
-	  },
+    },
 
     _tokenAcceptKeyCodesChanged: function (newValue) {
       this.tokenAcceptKeyCodesArray = (newValue) ? newValue.split(',') : [];
