@@ -320,12 +320,14 @@
     },
 
     _blur: function(e){
-      //console.debug('[_blur]', e);
-      var relativeFocusedTarget = e.relatedTarget || e.explicitOriginalTarget;
-      if ((!relativeFocusedTarget) || ((relativeFocusedTarget) && (!this._menuElement.contains(relativeFocusedTarget)))) {
-        this.setSuggestions([]);
-        this.inputValue = '';
-      }
+      var that = this;
+      setTimeout(function(){
+        var relativeFocusedTarget = e.relatedTarget || e.explicitOriginalTarget;
+        if ((!relativeFocusedTarget) || ((relativeFocusedTarget) && (!that._menuElement.contains(relativeFocusedTarget)))) {
+          that.setSuggestions([]);
+          that.inputValue = '';
+        }
+      }, 500);
     },
 
     _paste: function(e){
