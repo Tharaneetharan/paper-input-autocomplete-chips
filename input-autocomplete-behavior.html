@@ -265,7 +265,7 @@
     _onTapSelectable: function(e) {
       var suggestionsMenu = this._menuElement;
       if (suggestionsMenu && typeof(suggestionsMenu) !== 'undefined'){
-        this._setSelectedItem(e.currentTarget);
+        this._setSelectedItem(e.currentTarget, 'tap');
         e.stopPropagation();
       }
     },
@@ -386,7 +386,7 @@
       }
     },
 
-    _setSelectedItem: function (selectedItemElement) {
+    _setSelectedItem: function (selectedItemElement, action) {
       var suggestionsMenu = this._menuElement;
 
       if (selectedItemElement !== undefined) {
@@ -399,6 +399,10 @@
             index = Number(suggestionsMenu.indexOfSelectable(selectedItemElement));
             if (index >= 0) {
               selectedObject = selectedItemElement.dataObject;
+
+              if (this.allowSelectUnknownToken && selectedObject.text !== this._safeInputValue && action !== 'tap'){
+                selectedObject = this._createNewObejectForText(this._safeInputValue);
+              }
 
               selectedItemText = selectedObject.text;
               this.setSuggestions([]);
@@ -419,10 +423,7 @@
           var selectedItemText = this._safeInputValue;
 
           if (selectedItemText.length > 0) {
-            var selectedObject = {
-              key: this._generateObjectKey(selectedItemText),
-              text: selectedItemText
-            };
+            var selectedObject = this._createNewObejectForText(selectedItemText);
 
             this.selectedItemText = selectedItemText;
             this.selectedObject = selectedObject;
@@ -438,6 +439,13 @@
       if(this.validateOnAccept){
         this._inputElement.invalid = false;
       }
+    },
+
+    _createNewObejectForText: function (selectedItemText) {
+      return {
+        key: this._generateObjectKey(selectedItemText),
+        text: selectedItemText
+      };
     },
 
     _generateObjectKey: function (text) {
