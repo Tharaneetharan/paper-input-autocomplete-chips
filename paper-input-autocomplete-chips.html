@@ -267,12 +267,14 @@ Example:
       <template is="dom-if" if="[[!groupedSuggestions]]">
           <template is="dom-repeat" items="{{_suggestions}}">
             <paper-icon-item class="suggestion-item" data-key="[[item.key]]" data-text="[[item.text]]" data-tag$="[[item.tag]]" data-object="[[item]]" on-mouseover="_onMouseOverSelectable" on-tap="_onTapSelectable"  tabindex="-1" selectable-item>
-              <template is="dom-if" if="{{item.imgUrl}}">
-                <div class="icon avatar-result-icon" item-icon><img src$="[[item.imgUrl]]"></div>
-              </template>
-      <template is="dom-if" if="{{!item.imgUrl}}">
-                <div class="icon avatar-result-icon" item-icon>[[getInitialsFrom(item.text)]]</div>
-              </template>
+              <template is="dom-if" if="{{!noChipImage}}">
+                  <template is="dom-if" if="{{item.imgUrl}}">
+                    <div class="icon avatar-result-icon" item-icon><img src$="[[item.imgUrl]]"></div>
+                  </template>
+                   <template is="dom-if" if="{{!item.imgUrl}}">
+                    <div class="icon avatar-result-icon" item-icon>[[getInitialsFrom(item.text)]]</div>
+                  </template>
+                </template>
       <paper-item-body>
         <div>[[item.text]]</div>
       </paper-item-body>
